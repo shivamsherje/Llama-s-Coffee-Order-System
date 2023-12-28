@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #efefef;
+    }
+
+    nav {
+      background-color: #de7214;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      font-weight: normal;
+      color: white;
+      font-size: 1.5rem;
+    }
+    a {
+      margin-top: 1rem;
+      text-decoration: none;
+      color: black;
+      background-color: #de7214;
+      color: white;
+      padding: 1rem;
+      border-radius: 2rem;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    a {
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 25px;
+      padding: 10px;
+    }
+
+    #container {
+      padding: 10px;
+      text-align: center;
+    }
+
+    a:hover {
+      background-color: #111;
+    }
+
+    #container div {
+      /* border: 1px solid red; */
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 10px;
+    }
+
+    .headings {
+      /* border: 1px solid red; */
+      font-size: 20px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 10px;
+      padding: 0px 20px;
+    }
+
+    select {
+      padding: 10px;
+      cursor: pointer;
+      background-color: pink;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .modal {
+      display: none;
+
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 30%;
+    }
+
+    .modal-content > div {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 40%;
+      margin: auto;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .headings {
+      text-align: center;
+      color: white;
+      background-color: green;
+      font-weight: bold;
+    }
+
+    #card {
+      background-color: skyblue;
+      font-size: 17px;
+    }
+    #button {
+      background-color: #de7214;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+      font-size: 20px;
+      border-radius: 2rem;
+    }
+
+    input {
+      padding: 10px;
+    }
+    .llama-image {
+      height: 60px;
+    }
+    @media (max-width: 1000px) {
+      form {
+        width: 90%;
+      }
+      nav {
+        font-size: 1rem;
+      }
+      .llama-image {
+        height: 30px;
+      }
+    }
+  </style>
+
+  <body>
+    <nav>
+      <img
+        class="llama-image"
+        src="https://ask.myllama.co/assets/llama-lgo-a186d023.png"
+      />
+      <p>Llama's Coffee Order System</p>
+    </nav>
+    <br />
+    <br />
+
+    <a href="/">Orders</a>
+
+    <h2>Dashboard Page</h2>
+    <select id="type" onchange="filterbyCoffeetype()">
+      <option value="">Filter by coffee Type</option>
+      <option value="Americano">Americano</option>
+      <option value="Expresso">Expresso</option>
+      <option value="Cappuccino">Cappuccino</option>
+    </select>
+    <select id="size" onchange="filterbyCoffeesize()">
+      <option value="">Filter by coffee Size</option>
+      <option value="Small">Small</option>
+      <option value="Medium">Medium</option>
+      <option value="Large">Large</option>
+    </select>
+    <select id="sort" onchange="sortbyPrice()">
+      <option value="">Sort by Total Price</option>
+      <option value="ascending">ascending</option>
+      <option value="descending">descending</option>
+    </select>
+    <div class="headings">
+      <p>Customer Name</p>
+      <p>Coffee Type</p>
+      <p>Size</p>
+      <p>Quantity</p>
+      <p>Total Price</p>
+      <p>Edit order</p>
+      <p>Delete order</p>
+    </div>
+    <div id="container"></div>
+  </body>
+</html>
+<script src="dashboard.js"></script>
