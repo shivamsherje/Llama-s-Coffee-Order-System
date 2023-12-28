@@ -135,7 +135,7 @@ const createModal = (payload, i) => {
   editBtn.addEventListener('click', function () {
     editFunction(payload, i);
   });
-  editBtn.innerText = 'Edit';
+  editBtn.innerText = 'Add';
   editBtn.style.backgroundColor = 'orange';
   editBtn.style.padding = '10px';
   editBtn.style.color = 'white';
